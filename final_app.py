@@ -381,12 +381,18 @@ with tab_input:
     pets_allowed = st.checkbox("Include Pet-friendly Options")
     wheelchair_accessible = st.checkbox("Require Wheelchair Accessible Options")
 
-    transportation_options = ['Car', 'Public Transport', 'Taxi', 'Boat', 'Bicycle', 'Walking']
+    transportation_options = ['Car', 'Public Transport', 'Boat', 'Bicycle', 'Walking']
     transportation = st.multiselect("Preferred Modes of Transportation", transportation_options)
 
     if 'Car' in transportation:
         st.markdown("[🚗 Click here to rent a car!](https://www.example.com/car-rental)")  # Replace with actual link
 
+    if 'Public Transport' in transportation:
+        st.markdown("[🚍 Click here to view public transport details!](https://www.example.com/car-rental)")
+
+    if 'Boat' in transportation:
+        st.markdown("[🛥️ Click here to view transport via boat (fancy)!](https://www.example.com/car-rental)")
+    
     interests = st.text_input("Hobbies/Interests (separate by commas)")
     budget_per_person = st.number_input("Budget per Person per Day ($)", min_value=0.0, step=10.0)
     plan_type = st.selectbox("Preferred Plan Type", ["Very Touristy Plans", "Local Plans", "Not-Touristy Plans At All"])
