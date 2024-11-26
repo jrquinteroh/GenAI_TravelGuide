@@ -75,7 +75,7 @@ tabs = st.tabs(tab_names)
 tab_chatbot, tab_input, tab_recommendations, tab_checkout = tabs
 
 # Configure the API key
-API_KEY = st.secrets(API_KEY)  # Replace with your valid API key
+API_KEY = st.secrets["API_KEY"]  # Replace with your valid API key
 genai.configure(api_key=API_KEY)
 
 # Define the function to get a response from Gemini
