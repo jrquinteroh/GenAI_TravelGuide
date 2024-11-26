@@ -391,7 +391,7 @@ with tab_input:
         st.markdown("[🚍 Click here to view public transport details!](https://www.example.com/car-rental)")
 
     if 'Boat' in transportation:
-        st.markdown("[🛥️ Click here to view transport via boat (fancy)!](https://www.example.com/car-rental)")
+        st.markdown("[🛥️ Click here to view transport via boat (fancy😎💰)!](https://www.example.com/car-rental)")
     
     interests = st.text_input("Hobbies/Interests (separate by commas)")
     budget_per_person = st.number_input("Budget per Person per Day ($)", min_value=0.0, step=10.0)
