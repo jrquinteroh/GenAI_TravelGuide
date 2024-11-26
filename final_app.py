@@ -74,9 +74,7 @@ tabs = st.tabs(tab_names)
 
 tab_chatbot, tab_input, tab_recommendations, tab_checkout = tabs
 
-# Configure the API key
-API_KEY = st.secrets["API_KEY"]  # Replace with your valid API key
-genai.configure(api_key=API_KEY)
+
 
 # Define the function to get a response from Gemini
 def get_gemini_response(question, chat_history):
@@ -84,6 +82,11 @@ def get_gemini_response(question, chat_history):
     Calls the Gemini model (gemini-pro) and returns a response to the given question,
     including the chat history for context.
     """
+
+    # Configure the API key
+    API_KEY = st.secrets["API_KEY"]  # Replace with your valid API key
+    genai.configure(api_key=API_KEY)
+    
     # Instantiate the model
     model = genai.GenerativeModel('gemini-pro')
 
