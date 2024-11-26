@@ -306,7 +306,7 @@ def checkout_page():
 
             activity_counter += 1  # Increment the activity counter
 
-        st.write(f"**Total Estimated Cost:** ${total_estimated_cost:.2f}")
+        st.write(f"**Total Estimated Cost For Your Activities For Your Selected Day:** ${total_estimated_cost:.2f}")
 
         # Generate PDF report using FPDF
         pdf = FPDF()
@@ -360,7 +360,7 @@ def checkout_page():
 
 
         if st.button("Confirm and Finish", key="confirm_finish"):
-            st.success("Your trip has been planned! Thank you for using our service.")
+            st.success("Your trip has been planned! Thank you for using TravelPal 😎")
             st.balloons()  # Display balloons when the trip is confirmed
     else:
         st.warning("You have not selected any plans.")
