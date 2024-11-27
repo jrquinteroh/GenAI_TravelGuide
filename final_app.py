@@ -106,7 +106,7 @@ with tab_chatbot:
     st.header("Chatbot Assistant")
 
     # Add the image at the beginning
-    st.image("Travel_chatbot.png", use_container_width=True)  # Ensure the file is in the same directory
+    st.image("Travel_chatbot.png", use_container_width=True)
 
     # Add the descriptive text below the image
     st.markdown("""
@@ -119,7 +119,11 @@ with tab_chatbot:
     if st.button("Refresh", key="refresh_chatbot"):
         st.session_state.chat_messages = []  # Clear the chat history
         st.session_state.chat_history = []  # Clear the conversation history
-        st.experimental_rerun()  # Refresh the app to reset the state
+        # Remove st.experimental_rerun() or replace it as below
+        # st.experimental_rerun()
+
+        # Alternative: Use st.experimental_set_query_params() to force a rerun
+        st.experimental_set_query_params(refresh=str(datetime.now()))
 
     # Initialize chat message history in session state
     if "chat_messages" not in st.session_state:
@@ -143,7 +147,9 @@ with tab_chatbot:
 
         # Get the response from the assistant
         try:
-            answer, st.session_state.chat_history = get_gemini_response(prompt, st.session_state.chat_history)
+            answer, st.session_state.chat_history = get_gemini_response(
+                prompt, st.session_state.chat_history
+            )
             st.session_state.chat_messages.append({"role": "assistant", "content": answer})
 
             # Display the assistant's response
@@ -152,6 +158,7 @@ with tab_chatbot:
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
 
 def fetch_recommendations():
     # Create recommendations using images from '1.jpeg' to '7.jpeg'
